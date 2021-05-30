@@ -7,7 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@camila-cruz/modulo-comum": "*",
+    "@camila-cruz/ui": "*",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
