@@ -10,9 +10,7 @@ export default function Home() {
   return (
     <Title>
       Minha página
-      <Button>
-        Um botão
-      </Button>
+      <Button />
     </Title>
   );
 }
