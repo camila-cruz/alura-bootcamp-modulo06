@@ -1,26 +1,7 @@
-import { get } from 'lodash';
 import React from 'react';
-import styled from 'styled-components';
+import { ButtonWrapper, ButtonWrapperProps } from './styles/ButtonWrapper';
 
-const ButtonWrapper = styled.button`
-  border: 0;
-  cursor: pointer;
-  padding: 12px 26px;
-  font-weight: bold;
-  opacity: 1;
-  border-radius: 8px;
-
-  color: ${({ theme, color }) => get(theme, `colors.${color}.contrastText`)};
-  background-color: ${({ theme, color }) => get(theme, `colors.${color}.color`)};
-  
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.2;
-  }
-`;
-
-interface ButtonProps {
-  color: string;
+interface ButtonBaseProps {
   /**
    * Define se o botão pode receber eventos de clique
    */
@@ -29,11 +10,14 @@ interface ButtonProps {
    * Conteúdo que será exibido dentro do botão
    */
   children: React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function Button({ disabled, children, color }: ButtonProps) {
+type ButtonProps = ButtonWrapperProps & ButtonBaseProps;
+
+export default function Button({ disabled, children, color, onClick }: ButtonProps) {
   return (
-    <ButtonWrapper disabled={disabled} color={color}>
+    <ButtonWrapper disabled={disabled} color={color} onClick={onClick}>
       {children}
     </ButtonWrapper>
   );
